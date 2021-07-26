@@ -11,11 +11,11 @@ class utilisateursController extends AbstractController
 {
 
     /**
-     * @Route("/profil", name="main_profil")
+     * @Route("/utilisateurs", name="main_utilisateurs")
      */
-    public function profil()
+    public function utilisateurs()
     {
 
-        return $this->render("main/profil.html.twig");
+        return $this->render("utilisateurs/profil.html.twig");
 
 }
