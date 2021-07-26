@@ -16,6 +16,6 @@ class utilisateursController extends AbstractController
     public function utilisateurs()
     {
 
-        return $this->render("utilisateurs/profil.html.twig");
+        return $this->render("main/utilisateurs.html.twig/");
 
 }
