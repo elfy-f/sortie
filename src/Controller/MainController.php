@@ -23,7 +23,7 @@ class MainController extends AbstractController
      */
     public function profil()
     {
-
+        return $this->render("main/home.html.twig");
 
 
     }
