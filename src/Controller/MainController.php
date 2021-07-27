@@ -6,6 +6,9 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Compoment\HttpFundation\Response;
+
+
 
 class MainController extends AbstractController
 {
@@ -20,7 +23,6 @@ class MainController extends AbstractController
     }
 
 
-    }
-
-
 }
+
+
