@@ -2,6 +2,8 @@ body{
     background: linear-gradient(#e0e0e0, #5eb5e0);
     color: black;
     font-family: Baloo,Chettan;
+
+
 }
 .container{
     max-width: 1000px;
@@ -22,6 +24,7 @@ body > .container {
     display : flex;
     flex-direction:column;
     min-height: 100vh;
+
 }
 header img {
     height : 70px;

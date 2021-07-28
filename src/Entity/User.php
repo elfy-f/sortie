@@ -47,6 +47,16 @@ class User
      */
     private $actif;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $motDepasse;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +130,30 @@ class User
     public function setActif(bool $actif): self
     {
         $this->actif = $actif;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getMotDepasse(): ?string
+    {
+        return $this->motDepasse;
+    }
+
+    public function setMotDepasse(string $motDepasse): self
+    {
+        $this->motDepasse = $motDepasse;
 
         return $this;
     }
