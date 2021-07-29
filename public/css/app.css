@@ -50,7 +50,8 @@ label {
     display : block;
 }
 input,
-textarea {
+textarea,
+select{
     margin-botton: 1rem;
     box-sizing: border-box;
     max-width: 150px;

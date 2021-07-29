@@ -1,6 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block boby %}
+    <div>
+        {{ form_start (sortieForm) }}
 
+        {{ form_widget(sortieForm) }}
+
+        <button>créer</button>
+
+        {{ form_end(sortieForm) }}
+    </div>
     <h1>les sorties</h1>
 {% endblock %}
