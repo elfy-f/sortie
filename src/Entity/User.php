@@ -22,15 +22,12 @@ class User
      */
     private $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $prénom;
+
 
     /**
      * @ORM\Column(type="text")
      */
-    private $mail;
+    private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -50,7 +47,7 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $email;
+    private $mail;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -74,17 +71,7 @@ class User
         return $this;
     }
 
-    public function getPrénom(): ?string
-    {
-        return $this->prénom;
-    }
 
-    public function setPrénom(string $prénom): self
-    {
-        $this->prénom = $prénom;
-
-        return $this;
-    }
 
     public function getMail(): ?string
     {
