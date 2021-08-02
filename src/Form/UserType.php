@@ -15,17 +15,23 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, ['label'=>'Title'])
-            ->add('prénom', TextType::class, ['label'=>'Title'])
-            ->add('admin')
-            ->add('actif', ChoiceType::class, [
-                'choices'=>[
-                    'Present'=>'Present',
-                    'Absent'=>'Absent'
-                ]
-            ])
-            ->add('email', EmailPrototypeConfig::class)
-            ->add('motDepasse')
+            ->add('email',EmailPrototypeConfig::class, [
+                'label' => 'email'])
+            ->add('roles')
+            ->add('password')
+            ->add('firstname', \Symfony\Component\Form\Extension\Core\Type\TextType::class, [
+                'label' => 'Nom'])
+            ->add('lastname', TextType::class, [
+                'label' => 'Prenom'])
+            ->add('pseudo', TextType::class, [
+                'label' => 'Pseudo'])
+            ->add('telephone')
+            ->add('password')
+            ->add('confirmation')
+            ->add('campus')
+            ->add('photo')
+        ;
+    }
         ;
     }
 

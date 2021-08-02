@@ -57,7 +57,7 @@ class UserController extends AbstractController
         $UserForm->handleRequest($request);
 
         if ($UserForm->isSubmitted() && $UserForm->isValid()) {
-            $User->setDateNaissance(new \DateTime());
+            $User->setDateTime(new \DateTime());
 
                 $entityManager->persist($user);
                 $entityManager->flush();
