@@ -15,6 +15,7 @@
     <link rel="icon" href="{{ asset('img/images.jpg') }}">
 
     <title>{% block title %}Sorties{% endblock %}</title>
+    {% block extrastyles %}{% endblock %}
 </head>
 <body>
  <div class="container">
@@ -33,7 +34,7 @@
 
 
     <main>
-        {% block boby %}{% endblock %}
+        {% block body %}{% endblock %}
 
     </main>
 
