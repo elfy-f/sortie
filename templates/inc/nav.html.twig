@@ -1,16 +1,17 @@
 <nav>
     <ul>
+        <li> <a href="{{ path('main_home') }} " title="accueil">accueil </a>        </li>
         <li> <a href="{{ path('main_sorties') }} " title="Sortie">Sortie</a>        </li>
-        <li>   <a href="{{ path('main_User') }} " title="Utilisateurs">Utilisateurs</a>        </li>
-        {% if app.user %}
-        <li> <a href="{{ path('main_home') }} " title="creation">creation </a>        </li>
-        <li>  <a href="{{ path('sorties_create') }} " title="creation">creation </a>        </li>
-            <li>   <a href="{{ path('app_logout') }} " title="logout"({{ app.user.firstname }}>logout </a>            </li>
-        {% else %}
+    <li>   <a href="{{ path('main_User') }} " title="Utilisateurs">Utilisateurs</a>        </li>
+
+
+        <li>  <a href="{{ path('main_create') }} " title="creation">creation </a>        </li>
+
+
             <li>  <a href="{{ path('app_login') }} " title="login">login </a>            </li>
         {#   <li><a href="{{ path('app_register') }} " title="creation">Register </a></li>#}
 
-        {% endif %}
+
     </ul>
 
 </nav>

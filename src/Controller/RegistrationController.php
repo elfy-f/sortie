@@ -21,12 +21,12 @@ class RegistrationController extends AbstractController
     public function register(Request $request,
                              UserPasswordEncoderInterface $passwordEncoder,
                         UserAuthenticatorInterface $authenticator ,
-                        AppAuthenticator $formAuthenticator
+                      AppAuthenticator $formAuthenticator
     ): Response
     {
         $user = new User();
         $user->setRoles(["ROLE_ADMIN"]);
-        $form = $this->createdForm(UserFormType::class, $user);
+        $form = $this->createdForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
