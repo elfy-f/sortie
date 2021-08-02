@@ -15,8 +15,7 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email',EmailPrototypeConfig::class, [
-                'label' => 'email'])
+            ->add('email')
             ->add('roles')
             ->add('password')
             ->add('firstname', \Symfony\Component\Form\Extension\Core\Type\TextType::class, [
@@ -32,8 +31,8 @@ class UserType extends AbstractType
             ->add('photo')
         ;
     }
-        ;
-    }
+
+
 
     public function configureOptions(OptionsResolver $resolver)
     {
