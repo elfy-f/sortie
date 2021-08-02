@@ -59,7 +59,7 @@ class UserController extends AbstractController
         if ($UserForm->isSubmitted() && $UserForm->isValid()) {
             $User->setDateNaissance(new \DateTime());
 
-                $entityManager->persist($user);
+                $entityManager->persist($User);
                 $entityManager->flush();
 
                 $this->addFlash('success', 'utilisatuer ajouté!');

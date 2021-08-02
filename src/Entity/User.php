@@ -44,10 +44,7 @@ class User
      */
     private $actif;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $mail;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -73,17 +70,6 @@ class User
 
 
 
-    public function getMail(): ?string
-    {
-        return $this->mail;
-    }
-
-    public function setMail(string $mail): self
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
 
     public function getMdp(): ?string
     {

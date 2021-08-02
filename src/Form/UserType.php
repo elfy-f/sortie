@@ -16,16 +16,14 @@ class UserType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label'=>'Title'])
-            ->add('prénom', TextType::class, ['label'=>'Title'])
-            ->add('admin')
-            ->add('actif', ChoiceType::class, [
-                'choices'=>[
-                    'Present'=>'Present',
-                    'Absent'=>'Absent'
-                ]
-            ])
+        // ->add('prenom', TextType::class, ['label'=>'Title'])
+          //  ->add('admin')
+           // ->add('actif', ChoiceType::class, [
+           //     'choices'=>[
+           //         'Present'=>'Present',
+            //        'Absent'=>'Absent'                ]            ])
             ->add('email', EmailPrototypeConfig::class)
-            ->add('motDepasse')
+          //  ->add('motDepasse')
         ;
     }
 
