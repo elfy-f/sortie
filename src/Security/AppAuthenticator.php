@@ -57,8 +57,13 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
 
     }
 
-    protected function supports(Request $request): bool
+    public function supports(Request $request): bool
     {
        return $request->isMethod('post') && self::LOGIN_ROUTE === $request->attributes->get('route');
+    }
+
+    protected function getLoginUrl(Request $request): string
+    {
+        // TODO: Implement getLoginUrl() method.
     }
 }
