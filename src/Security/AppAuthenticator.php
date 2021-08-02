@@ -21,6 +21,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
     use TargetPathTrait;
 
     public const LOGIN_ROUTE = 'app_login';
+    public const LOGIN_FIELD = 'email';
 
     private UrlGeneratorInterface $urlGenerator;
 
@@ -31,7 +32,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
 
     public function authenticate(Request $request): PassportInterface
     {
-        $email = $request->request->get('email', '');
+        $email = $request->request->get(self::LOGIN_FIELD, '');
 
         $request->getSession()->set(Security::LAST_USERNAME, $email);
 
@@ -40,6 +41,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
             new PasswordCredentials($request->request->get('password', '')),
             [
                 new CsrfTokenBadge('authenticate', $request->get('_csrf_token')),
+                //new RememberMeBadge(),
             ]
         );
     }
@@ -55,8 +57,8 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
 
     }
 
-    protected function getLoginUrl(Request $request): string
+    protected function supports(Request $request): bool
     {
-        return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+       return $request->isMethod('post') && self::LOGIN_ROUTE === $request->attributes->get('route');
     }
 }
