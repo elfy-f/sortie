@@ -18,11 +18,17 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column (type="string",length=50)
+     *
      */
+    private $Roles;
+
+
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+
     private $name;
-
-
 
     /**
      * @ORM\Column(type="text")
@@ -30,7 +36,7 @@ class User
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=25)
      */
     private $mdp;
 

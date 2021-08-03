@@ -25,17 +25,17 @@ class Lieu
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $rue;
+    private $street;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $ville;
+    private $town;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $codePostal;
+    private $code;
 
     public function getId(): ?int
     {
@@ -54,38 +54,38 @@ class Lieu
         return $this;
     }
 
-    public function getRue(): ?string
+    public function getstreet(): ?string
     {
-        return $this->rue;
+        return $this->street;
     }
 
     public function setRue(string $rue): self
     {
-        $this->rue = $rue;
+        $this->street = $street;
 
         return $this;
     }
 
-    public function getVille(): ?string
+    public function gettown(): ?string
     {
-        return $this->ville;
+        return $this->town;
     }
 
-    public function setVille(string $ville): self
+    public function settown(string $town): self
     {
-        $this->ville = $ville;
+        $this->town = $town;
 
         return $this;
     }
 
-    public function getCodePostal(): ?int
+    public function getCode(): ?int
     {
-        return $this->codePostal;
+        return $this->code;
     }
 
-    public function setCodePostal(int $codePostal): self
+    public function setCode(int $code): self
     {
-        $this->codePostal = $codePostal;
+        $this->code = $code;
 
         return $this;
     }

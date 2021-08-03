@@ -5,10 +5,11 @@ namespace App\Form;
 use App\Entity\User;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Config\Monolog\HandlerConfig\EmailPrototypeConfig;
+
 
 class UserType extends AbstractType
 {
@@ -16,9 +17,9 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('roles')
+            ->add('roles',TextType::class)
             ->add('password')
-            ->add('firstname', \Symfony\Component\Form\Extension\Core\Type\TextType::class, [
+            ->add('firstname', TextType::class, [
                 'label' => 'Nom'])
             ->add('lastname', TextType::class, [
                 'label' => 'Prenom'])
