@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-//use Symfony\Component\Security\Htpp\Authentication\UserAuthenticatorInterface;
 
 class RegistrationController extends AbstractController
 {
@@ -24,32 +23,32 @@ class RegistrationController extends AbstractController
                       AppAuthenticator $formAuthenticator
     ): Response
     {
-        $user = new User();
-     //  $user->setRoles(["ROLE_ADMIN"]);
-       // $form = $this->createdForm (RegistrationFormType::class, $user);
-       // $form->handleRequest($request);
+        $User = new User();
+       $User->setRoles(["ROLE_ADMIN"]);
+       $form = $this->createdForm (RegistrationFormType::class, $User);
+       $form->handleRequest($request);
 
-        /*   if ($form->isSubmitted() && $form->isValid()) {
+         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
-            $user->setPassword(
+            $User->setPassword(
                 $passwordEncoder->encodePassword(
-                    $user,
+                    $User,
                     $form->get('plainPassword')->getData()
                 )
-           );*/
+           );
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
+            $entityManager->persist($User);
             $entityManager->flush();
 
             return $authenticator->authenticateUser(
-                $user,
+                $User,
                 $formAuthenticator,
                 $request);
         }
 
-     //   return $this->render('registration/register.html.twig', [
-         //   'registrationForm' => $form->createView(),]); }
+       return $this->render('registration/register.html.twig', [
+            'registrationForm' => $form->createView(),]); }
 
 
 

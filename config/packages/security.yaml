@@ -1,6 +1,10 @@
 security:
     # https://symfony.com/doc/current/security/experimental_authenticators.html
     enable_authenticator_manager: true
+    password_hashers:
+        App\Entity\User:
+            algorithm: auto
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         #used to reload user from session & other features(e.g. switch_user)
@@ -9,6 +13,7 @@ security:
                 class: App\Entity\User
                 property: email
         users_in_memory: { memory: null }
+        # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/

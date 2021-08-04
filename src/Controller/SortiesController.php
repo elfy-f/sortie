@@ -90,6 +90,16 @@ class SortiesController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route ("/sortie/user", name="user")
+     */
+    public function getUser( SortieRepository $sortieRepository): Response
+    {
 
+        $sortie = $sortieRepository->findUser();
 
+        return $this->render('sortie/user.html.twig',[
+            "sortie"=> $sortie
+        ]);
+    }
 }

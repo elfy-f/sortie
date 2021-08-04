@@ -14,6 +14,16 @@
         <div> max de personne:{{sortie.max }}</div>
         <div> Description:{{ sortie.overview }}</div>
         <div> Status:{{ sortie.status }}</div>
+        <section class="user">
+                <h3>User</h3>
+                {%  for user in sortie.user %}
+                <article>
+                        <div>
+                                <h4>User #{{ user.sortie }}</h4>
+
+                        </div>
+                </article>
+        </section>
 
 </div>
 {% endblock %}
