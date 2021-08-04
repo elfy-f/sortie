@@ -3,7 +3,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Adoption;
 use App\Entity\Sortie;
+use App\Form\AdoptionType;
 use App\Form\SortieType;
 use App\Repository\SortieRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -69,12 +71,28 @@ class SortiesController extends AbstractController
      */
 
 
-    public function create(int $id): Response
+    public function create(
+        Request $request,
+        EntityManagerInterface $entityManager
+    ): Response
     {
+        $adoption = new sortie();
+        $sortieForm = $this->createForm(sortieType::class, $adoption);
+
+        $sortieForm->handleRequest($request);
+
+        if ($sortieForm->isSubmitted() && $sortieForm->isValid()){
 
 
-        return $this->render("sortie/create.html.twig", [
+            $entityManager->persist($sortie);
+            $entityManager->flush();
 
+            $this->addFlash('success', 'sortie');
+            return $this->redirectToRoute('details', ['id'=> $sortie->getId()]);
+        }
+
+        return $this-> render('sortie/create.html.twig',[
+            'sortieForm' => $sortieForm-> createView()
         ]);
 
     }
@@ -93,10 +111,10 @@ class SortiesController extends AbstractController
     /**
      * @Route ("/sortie/user", name="user")
      */
-    public function getUser( SortieRepository $sortieRepository): Response
+    public function User( SortieRepository $sortieRepository): Response
     {
 
-        $sortie = $sortieRepository->findUser();
+        $sortie = $sortieRepository;
 
         return $this->render('sortie/user.html.twig',[
             "sortie"=> $sortie
