@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
+{% block title %}
 
+{% endblock %}
 {% block body %}
+    <h1>Les sorties enregistrées par les administrateurs</h1>
+
     <div>
         {{ form_start (sortieForm) }}
 
@@ -10,5 +14,5 @@
 
         {{ form_end(sortieForm) }}
     </div>
-    <h1>les sorties</h1>
+
 {% endblock %}

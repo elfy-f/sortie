@@ -8,7 +8,7 @@
  <section class="sorties-list">
   {% for sortie in sortie %}
   <article>
-  <a href="{{ path('main_details', {'id': sortie.id}) }}" title="{{ sortie.name }} sortie/details" ></a>
+  <a href="{{ path('main_details', {'id': sortie.id}) }}" title="{{ sortie.name }} sortie/details {{ sortie.user|length }}user"></a>
   </article>
  </section>
 {% endfor %}

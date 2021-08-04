@@ -38,8 +38,11 @@ class UserType extends AbstractType
             ->add('confirmation', null, [
                 'required' => false,
             ])
-            ->add('campus', null, [
-                'required' => false,
+            ->add('campus', ChoiceType::class, [
+                'choices'=>[
+                    'Rennes'=>'Rennes',
+                    'Nantes'=>'Nantes',
+                    'Niort'=>'Niort'
             ])
             ->add('photo', null, [
                 'required' => false,
