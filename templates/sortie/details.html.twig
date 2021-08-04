@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block body %}
+        <div class=sortie-details-infos"> </div>
+
 <div class=sortie-details-infos">
         <h2>{{ sortie.name }}</h2>
         <div>Date de sortie:{{ sortie.date|date("d-m-y") }}</div>
@@ -14,16 +16,21 @@
         <div> max de personne:{{sortie.max }}</div>
         <div> Description:{{ sortie.overview }}</div>
         <div> Status:{{ sortie.status }}</div>
-        <section class="user">
+
+
+
+       {#  <section class="user">
                 <h3>User</h3>
                 {%  for user in sortie.user %}
                 <article>
                         <div>
-                                <h4>User #{{ user.sortie }}</h4>
+                                 <h4>User #{{ user}}</h4>
 
                         </div>
                 </article>
-        </section>
+                {% endfor%}
+        </section>#}
 
 </div>
+
 {% endblock %}
