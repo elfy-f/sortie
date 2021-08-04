@@ -40,7 +40,7 @@ class User
     /**
      * @ORM\Column(type="string", length=25)
      */
-    private $mdp;
+    private $password;
 
     /**
      * @ORM\Column(type="boolean")

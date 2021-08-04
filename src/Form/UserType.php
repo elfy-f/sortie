@@ -43,6 +43,8 @@ class UserType extends AbstractType
                     'Rennes'=>'Rennes',
                     'Nantes'=>'Nantes',
                     'Niort'=>'Niort'
+                ],
+                'multiple'=>false
             ])
             ->add('photo', null, [
                 'required' => false,
