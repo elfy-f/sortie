@@ -78,7 +78,17 @@ class SortiesController extends AbstractController
         ]);
 
     }
+    /**
+     * @Route("/sortie/list", name="list")
+     */
+    public function list(SortieRepository  $sortieRepository): Response
+    {
+       $sortie = $sortieRepository->findsortie();
 
+        return $this->render('sortie/list.html.twig', [
+            "sortie" => $sortie
+        ]);
+    }
 
 
 

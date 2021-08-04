@@ -47,4 +47,7 @@ class SortieRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findsortie()
+    {
+    }
 }
