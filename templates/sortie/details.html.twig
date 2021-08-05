@@ -19,17 +19,18 @@
 
 
 
-       {#  <section class="user">
+       <section class="user">
                 <h3>User</h3>
                 {%  for user in sortie.user %}
                 <article>
                         <div>
-                                 <h4>User #{{ user}}</h4>
+                            <img src="{{ asset('img/images.jpg') }}" alt="{{ sortie.name }} user #{{ user.name }}">
+                                 <h4>User #{{user.name}}</h4>
 
                         </div>
                 </article>
                 {% endfor%}
-        </section>#}
+        </section>
 
 </div>
 

@@ -121,16 +121,4 @@ class SortiesController extends AbstractController
 
 
 
-    /**
-     * @Route ("/sortie/user", name="user")
-     */
-    public function User( SortieRepository $sortieRepository): Response
-    {
-
-        $sortie = $sortieRepository;
-
-        return $this->render('sortie/user.html.twig',[
-            "sortie"=> $sortie
-        ]);
-    }
 }
