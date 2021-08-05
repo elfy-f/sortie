@@ -4,7 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Adoption;
-use App\Entity\Sortie;
+use App\Entity\sortie;
 use App\Form\AdoptionType;
 use App\Form\SortieType;
 use App\Repository\SortieRepository;
@@ -96,7 +96,7 @@ class SortiesController extends AbstractController
 
 
 {
-    $sortie = new Sortie();
+    $sortie = new sortie();
     $sortieForm = $this->createForm(SortieType::class, $sortie);
 
     $sortieForm->handleRequest($request);

@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+
 use App\Entity\User;
+use App\Form\RegistrationFormType;
 use App\Form\UserType;
 use App\Security\AppAuthenticator;
+use phpDocumentor\Reflection\Types\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,11 +24,12 @@ class RegistrationController extends AbstractController
                              UserPasswordEncoderInterface $passwordEncoder,
                         UserAuthenticatorInterface $authenticator ,
                       AppAuthenticator $formAuthenticator
+
     ): Response
     {
         $User = new User();
        $User->setRoles(["ROLE_ADMIN"]);
-       $form = $this->createdForm (RegistrationFormType::class, $User);
+       $form = $this->createForm(RegistrationFormType::class, $User);
        $form->handleRequest($request);
 
          if ($form->isSubmitted() && $form->isValid()) {
@@ -48,11 +52,7 @@ class RegistrationController extends AbstractController
         }
 
        return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form->createView(),]); }
-
-
-
-
-
-
+            'registrationForm' => $form->createView(),
+           ]);
+    }
 }

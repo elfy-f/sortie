@@ -41,7 +41,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
             new PasswordCredentials($request->request->get('password', '')),
             [
                 new CsrfTokenBadge('authenticate', $request->get('_csrf_token')),
-                new RememberMeBadge(),
+               // new RememberMeBadge(),
             ]
         );
     }
@@ -54,18 +54,24 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
 
         // For example:
         return new RedirectResponse($this->urlGenerator->generate('main_home'));
-
     }
+
+
+            protected function getLoginUrl(Request $request): string
+        {
+            return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+        }
+
 
     public function supports(Request $request): bool
     {
         return $request->isMethod('post') && self::LOGIN_ROUTE === $request->attributes->get('route');
     }
 
-    protected function getLoginUrl(Request $request): string
-    {
+   // protected function getLoginUrl (Request $request): string
+   // {
 
-        return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+   //     return $this->urlGenerator->generate(self::LOGIN_ROUTE);
 
-    }
+   // }
 }

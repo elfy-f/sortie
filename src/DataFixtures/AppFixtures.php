@@ -3,7 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Campus;
-use App\Entity\Sortie;
+use App\Entity\sortie;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
