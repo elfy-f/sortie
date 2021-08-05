@@ -3,9 +3,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Adoption;
 use App\Entity\sortie;
-use App\Form\AdoptionType;
+
 use App\Form\SortieType;
 use App\Repository\SortieRepository;
 use Doctrine\ORM\EntityManagerInterface;

@@ -3,47 +3,71 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Doctrine\DBAL\Types\TextType;
+
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('field_name', null, [
-                'required' => false,
-            ])
-
+        ->add('name', null, [
+            'required' => false,
+        ])
         ->add('email', null, [
             'required' => false,
         ])
-        ->add('roles', TextType::class)
-        ->add('password')
-        ->add('firstname', TextType::class, [
-            'label' => 'Nom'])
         ->add('lastname', TextType::class, [
-            'label' => 'Prenom'])
-        ->add('pseudo', TextType::class, [
-            'label' => 'Pseudo'])
-        ->add('telephone', null, [
+            'label' => 'Prenom'
+        ])
+        //->add('pseudo', TextType::class, [
+        //    'label' => 'Pseudo'])
+        ->add('phone', IntegerType::class, [
             'required' => false,
         ])
-        ->add('password', null, [
-            'required' => false,
-        ])
-        ->add('confirmation', null, [
-            'required' => false,
-        ])
-        ->add('campus', null, [
-            'required' => false,
-        ])
-        ->add('photo', null, [
-            'required' => false,
-        ])
-    ;
+        ->add('Password', PasswordType::class, [
+            'mapped' => false,
+            'constraints'=>[
+                new NotBlank([
+                    'message'=>'A remplir'
+                ]),
+                new Length([
+                    'min'=>3,
+                    'minMessage'=>'password trop court 3 caractères minimum'
+                ]),
+        ]])
+
+
+        ->add('campus', ChoiceType::class, [
+            'choices'=>[
+                'Rennes'=>'Rennes',
+                'Niort'=>'Niort',
+                'Nantes'=>'Nantes'
+            ],
+            'multiple'=>false])
+
+
+
+
+        ->add('town', TextType::class, [
+        'label' => 'Ville'
+    ])
+
+        ->add('admin', ChoiceType::class, [
+            'choices'=>[
+                'oui'=>'oui',
+                'non'=>'non'
+    ]]) ;
+
+
     }
 
 

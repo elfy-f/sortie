@@ -27,32 +27,33 @@ class RegistrationController extends AbstractController
 
     ): Response
     {
-        $User = new User();
-       $User->setRoles(["ROLE_ADMIN"]);
-       $form = $this->createForm(RegistrationFormType::class, $User);
+       $user = new User();
+       $user->setRoles(["ROLE_ADMIN"]);
+       $form = $this->createForm(RegistrationFormType::class, $user);
        $form->handleRequest($request);
 
          if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
-            $User->setPassword(
+            $user->setPassword(
                 $passwordEncoder->encodePassword(
-                    $User,
+                    $user,
                     $form->get('plainPassword')->getData()
                 )
            );
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($User);
+            $entityManager->persist($user);
             $entityManager->flush();
 
             return $authenticator->authenticateUser(
-                $User,
+                $user,
                 $formAuthenticator,
                 $request);
+
         }
 
        return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form->createView(),
+            'registrationForm' => $form->createView()
            ]);
     }
 }
