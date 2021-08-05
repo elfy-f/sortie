@@ -1,61 +1,72 @@
 body{
     background: linear-gradient(#e0e0e0, #5eb5e0);
     color: black;
-    font-family: curcive; Chettan;
-
+    font-family: cursive;
 }
+
 .container{
     max-width: 1000px;
     margin: auto;
     padding:5px;
 }
+
 a {
     color: inherit;
     text-decoration: none;
 }
+
 a:hover {
     color: #BC956B;
 }
+
 img {
     max-width: 100%;
 }
+
 body > .container {
+
     display : flex;
     flex-direction:column;
     min-height: 100vh;
-
 }
+
 header img {
     height : 70px;
 }
+
 main {
     flex: 1;
 }
+
 nav ul {
     display: flex;
     list-style: none;
     padding-left: 0;
 }
+
 nav li {
     margin-right: 1rem;
 }
+
 .sorties-list {
     display: grid;
     grid-gap:10px;
     grid-template-columns: repeat(auto-fill,minmax(140px, 1fr));
 }
 
+
 label {
     display : block;
 }
+
 input,
-textarea,
-select{
+textarea {
     margin-botton: 1rem;
     box-sizing: border-box;
     max-width: 150px;
     width: 50%;
 }
+
 .flash {
     padding: 20px;
     font-weight: bold;
@@ -66,7 +77,9 @@ select{
 .flash-success { background-color: aquamarine}
 
 /*la fleur*/
+
 .conteneur {position: relative;width: 15em;height: 15em;border-radius: 0%;margin: 0 auto;}
+
 .noeud {
     z-index: 2;
     position: absolute;
@@ -82,9 +95,10 @@ select{
     opacity: 1;
 }
 .noeud:hover {opacity: 0.85;}
+
 .petales-box {position: absolute;top: 0;left: 0;width: 15em;height: 15em;}
-.petale
-{
+
+.petale {
     position: absolute;
     width: 2.88675em;
     height: 2.5em;
@@ -94,9 +108,6 @@ select{
     cursor: pointer;
     overflow: hidden;
 }
-
-
-
 .petale:nth-child(1) {transform: translateY(6.25em) translateX(11.05662em) rotate(-30deg) skewX(30deg);}
 .petale:nth-child(2) {transform: translateY(8.75em) translateX(10.38675em) rotate(0deg) skewX(30deg);}
 .petale:nth-child(3) {transform: translateY(10.58013em) translateX(8.55662em) rotate(30deg) skewX(30deg);}
@@ -108,8 +119,8 @@ select{
 .petale:nth-child(9) {transform: translateY(1.91987em) translateX(3.55662em) rotate(210deg) skewX(30deg);}
 .petale:nth-child(10) {transform: translateY(1.25em) translateX(6.05662em) rotate(240deg) skewX(30deg);}
 .petale:nth-child(11) {transform: translateY(1.91987em) translateX(8.55662em) rotate(270deg) skewX(30deg);}
-
 .petale:nth-child(12) {transform: translateY(3.75em) translateX(10.38675em) rotate(300deg) skewX(30deg);}
+
 .petale:nth-child(13) {transform: translateY(4.9em) translateX(10.28675em) rotate(310deg) skewX(30deg);}
 .petale:nth-child(14) {transform: translateY(7.3em) translateX(10.28675em) rotate(340deg) skewX(30deg);}
 .petale:nth-child(15) {transform: translateY(9.5em) translateX(9.48675em) rotate(370deg) skewX(30deg);}
@@ -122,4 +133,3 @@ select{
 .petale:nth-child(22) {transform: translateY(1.7em) translateX(4.48675em) rotate(580deg) skewX(30deg);}
 .petale:nth-child(23) {transform: translateY(1.8em) translateX(7.18675em) rotate(620deg) skewX(30deg);}
 .petale:nth-child(24) {transform: translateY(3.0em) translateX(9.38675em) rotate(650deg) skewX(30deg);}
-
