@@ -33,7 +33,7 @@ class RegistrationFormType extends AbstractType
         ->add('phone', IntegerType::class, [
             'required' => false,
         ])
-        ->add('Password', PasswordType::class, [
+        ->add('plainPassword', PasswordType::class, [
             'mapped' => false,
             'constraints'=>[
                 new NotBlank([
